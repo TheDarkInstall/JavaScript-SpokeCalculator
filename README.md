@@ -1,2 +1,2 @@
 # JavaScript-SpokeCalculator
-Moving the Excel Spoke Calculator into JavaScript for deployment
+Moving the Excel Spoke Calculator into JavaScript for deployment.  Current work in progress...
