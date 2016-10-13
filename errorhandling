@@ -1,3 +1,5 @@
+// Absolute data errors, which can not be disputed
+
 function wheelErrors(wheel) {
 
 	var errorText='';
@@ -38,4 +40,31 @@ function wheelErrors(wheel) {
 		dispResult("Calculator error","<h1>Problem</h1>\n"+errorText)
 
 	return errors;
+}
+
+//Strange numbers, which are very unusual but there is a chance they might be right...
+
+function wheelWarnings(wheel) {
+	var warnings=false, msg='';
+	
+	if ((wheel.C_orig==wheel.D_orig) && wheel.asym>0) {
+		msg+='<p>Asym rims are not used on hubs with identical flange distances.</p>'; 
+		warnings=true;
+	}
+	
+	if (wheel.hubType=='sp' && wheel.crossLeft==0 && wheel.offsetLeft>0) {
+		msg+="<p>Left spoke hole offset for radial lacing is normally zero.</p>";
+		warnings=true;
+	}
+
+
+	if (wheel.hubType=='sp' && wheel.crossRight==0 && wheel.offsetRight>0) {
+		msg+="<p>Right spoke hole offset for radial lacing is normally zero.</p>";
+		warnings=true;
+	}
+	
+	if (warnings)
+		msg='<h1 style="color:#f00;">Warning</h1>'+msg;
+		
+	return warnings ? msg : '';
 }
