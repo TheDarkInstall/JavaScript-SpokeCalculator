@@ -1,9 +1,8 @@
 function doCalc() {
-
 	var wheel=wheelData("normal");
 	var prn='';
 
-	if (wheelErrors(wheel))
+	if (wheelErrors(wheel)) //currently in errorhandling.js
 		return; // Error message already displayed
 
 	prn+=wheelWarnings(wheel);
